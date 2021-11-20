@@ -12,12 +12,14 @@ jobs:
             const name = context.payload.repository.full_name.split('/')[1]
             core.setOutput('repoName', name)
       - run: echo "${{steps.get-repo-name.outputs.repoName}}"
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJSON(job) }}
-        run: echo "$JOB_CONTEXT"
+      # - name: Dump GitHub context
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJSON(github) }}
+      #   run: echo "$GITHUB_CONTEXT"
+      # - name: Dump job context
+      #   env:
+      #     JOB_CONTEXT: ${{ toJSON(job) }}
+      #   run: echo "$JOB_CONTEXT"      
+    outputs:
+      repoName: "${{steps.get-repo-name.outputs.repoName}}"
       
