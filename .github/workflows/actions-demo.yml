@@ -1,0 +1,8 @@
+name: Actions Demo
+on: [push]
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    steps:
+        - name: github-context
+          run: echo "${{ github }}"
