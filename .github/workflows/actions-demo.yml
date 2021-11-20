@@ -9,7 +9,7 @@ jobs:
         with:
           script: |
             console.log(context)
-            const name = context.repository.full_name.split('/')[1]
+            const name = context.payload.repository.full_name.split('/')[1]
             core.setOutput('repoName', name)
       - run: echo "${{steps.get-repo-name.outputs.repoName}}"
       - name: Dump GitHub context
