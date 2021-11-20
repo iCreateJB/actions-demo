@@ -4,5 +4,11 @@ jobs:
   context:
     runs-on: ubuntu-latest
     steps:
-        - name: github-context
-          run: echo "${{ github }}"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"
